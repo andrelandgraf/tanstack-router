@@ -5,7 +5,7 @@ description: >-
   useServerFn hook, server context utilities (getRequest,
   getRequestHeader, setResponseHeader, setResponseStatus), error
   handling (throw errors, redirect, notFound), streaming, FormData
-  handling, file organization (.functions.ts, .server.ts).
+  handling, file organization (.functions.ts, .server.ts), Postgres on Neon.
 metadata:
   type: sub-skill
   library: tanstack-start
@@ -495,4 +495,5 @@ Relative `fetch` is fine in a browser-only event handler. It is not a universal 
 - [start-core/execution-model](../execution-model/SKILL.md) — understanding where code runs
 - [start-core/middleware](../middleware/SKILL.md) — composing server functions with middleware
 - [start-core/auth-server-primitives](../auth-server-primitives/SKILL.md) — sessions, cookies, OAuth, CSRF, rate limiting (the server-side half of auth; `getCurrentUser` and external session helpers belong here, not at module scope)
+- [references/neon-postgres.md](references/neon-postgres.md) — Postgres on Neon: drivers, pooled vs direct connections, Drizzle, database branches, Object Storage
 - `@tanstack/router-core#router-core/auth-and-guards` — routing-side UX guards; data auth belongs in the server function, server route, or API endpoint handler/middleware

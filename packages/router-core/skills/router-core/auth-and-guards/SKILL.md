@@ -4,7 +4,7 @@ description: >-
   Route protection with beforeLoad, redirect()/throw redirect(),
   isRedirect helper, authenticated layout routes (_authenticated),
   non-redirect auth (inline login), RBAC with roles and permissions,
-  auth provider integration (Auth0, Clerk, Supabase), router context
+  auth provider integration (Clerk, WorkOS, Neon Auth), router context
   for auth state.
 metadata:
   type: sub-skill
@@ -130,7 +130,7 @@ function App() {
 }
 ```
 
-The router is created once with a placeholder. `RouterProvider`'s `context` prop injects the live auth state on each render — this avoids recreating the router on auth changes (which would reset caches and rebuild the route tree).
+The router is created once with a placeholder. `RouterProvider`'s `context` prop injects the live auth state on each render — this avoids recreating the router on auth changes (which would reset caches and rebuild the route tree). For a hosted provider's session read in `beforeLoad`, see the [Neon Auth example](references/neon-auth.md).
 
 ### Redirect-Based Auth with Redirect-Back
 

@@ -131,7 +131,7 @@ skills:
       Route protection with beforeLoad, redirect()/throw redirect(),
       isRedirect helper, authenticated layout routes (_authenticated),
       non-redirect auth (inline login), RBAC with roles and permissions,
-      auth provider integration (Auth0, Clerk, Supabase), router context
+      auth provider integration (Clerk, WorkOS, Neon Auth), router context
       for auth state.
     requires:
       - 'router-core'
@@ -140,6 +140,8 @@ skills:
       - 'TanStack/router:docs/router/how-to/setup-authentication.md'
       - 'TanStack/router:docs/router/how-to/setup-auth-providers.md'
       - 'TanStack/router:docs/router/how-to/setup-rbac.md'
+    references:
+      - 'references/neon-auth.md'
 
   - name: 'Code Splitting'
     slug: 'router-core/code-splitting'

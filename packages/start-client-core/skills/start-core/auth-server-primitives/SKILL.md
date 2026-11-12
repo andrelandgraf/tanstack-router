@@ -29,6 +29,11 @@ This skill covers the **server half** of authentication: session storage, cookie
 > **CRITICAL**: Validating the _shape_ of a client-supplied identifier (`z.string().uuid().parse(...)`) is not authorization. A parsed UUID is still _some_ tenant — re-check membership against the session principal before using it.
 > **CRITICAL**: Read session/cookies inside `.handler()` or middleware `.server()`, not at module scope. Module-level reads run before requests exist (and are also undefined on Cloudflare Workers).
 
+A managed auth provider replaces the cookie, password and OAuth code below, but
+not the authorization rules: every protected server function still checks the
+session and the resource owner. For Neon Auth (Managed Better Auth) on Start,
+see [references/neon-auth.md](references/neon-auth.md).
+
 ## Production Checklist
 
 - Enforce auth in every server function, server route, or API endpoint that reads or writes private user, tenant, or account data. Use route `beforeLoad` for page UX, not as the data boundary.
@@ -413,3 +418,4 @@ A session token that never rotates is functionally a long-lived credential. Rota
 - [start-core/server-functions](../server-functions/SKILL.md) — how to expose RPCs (and how the route guard does NOT cover them).
 - [start-core/middleware](../middleware/SKILL.md) — composing `authMiddleware` and others.
 - [start-core/execution-model](../execution-model/SKILL.md) — why module-level env/secret reads are wrong.
+- [references/neon-auth.md](references/neon-auth.md) — Neon Auth on Start: same-origin auth proxy, session middleware, root-route session.

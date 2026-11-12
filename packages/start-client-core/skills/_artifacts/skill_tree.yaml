@@ -46,6 +46,8 @@ skills:
       - 'start-core'
     sources:
       - 'TanStack/router:docs/start/framework/react/guide/server-functions.md'
+    references:
+      - 'references/neon-postgres.md'
 
   - name: 'Middleware'
     slug: 'start-core/middleware'

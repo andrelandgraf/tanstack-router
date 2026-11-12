@@ -4,7 +4,8 @@ description: >-
   Core overview for TanStack Start: tanstackStart() Vite plugin,
   getRouter() factory, root route document shell (HeadContent,
   Scripts, Outlet), client/server entry points, routeTree.gen.ts,
-  tsconfig configuration. Entry point for all Start skills.
+  tsconfig configuration, connecting a Postgres database (Neon).
+  Entry point for all Start skills.
 metadata:
   type: core
   library: tanstack-start
@@ -41,6 +42,9 @@ Use this entry skill to pick one primary workflow. Do not load every Start sub-s
 ```text
 Need to run code exclusively on the server (DB, secrets)?
   → start-core/server-functions
+
+Need a Postgres database, file uploads, or preview branches?
+  → start-core/server-functions (references/neon-postgres.md)
 
 Need auth checks, logging, or shared logic across server functions?
   → start-core/middleware
