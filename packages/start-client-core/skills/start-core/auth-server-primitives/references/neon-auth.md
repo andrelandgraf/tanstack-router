@@ -78,13 +78,19 @@ export const authClient = createAuthClient('') // same origin: /api/auth
 ```ts
 // src/auth.functions.ts
 import { createMiddleware, createServerFn } from '@tanstack/react-start'
-import { setResponseHeader } from '@tanstack/react-start/server'
+import {
+  setResponseHeader,
+  setResponseStatus,
+} from '@tanstack/react-start/server'
 import { auth } from './auth.server'
 
 export const requireUser = createMiddleware({ type: 'function' }).server(
   async ({ next }) => {
     const { data } = await auth.getSession()
-    if (!data?.user) throw new Error('Unauthorized')
+    if (!data?.user) {
+      setResponseStatus(401)
+      throw new Error('UNAUTHENTICATED')
+    }
     return next({ context: { user: { id: data.user.id } } })
   },
 )

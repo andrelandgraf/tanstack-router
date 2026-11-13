@@ -11,10 +11,10 @@ app or one already on Neon.
 
 - Existing Neon project: copy the connection string from the Console's
   **Connect** dialog.
-- No account yet: `npx neon@latest claim create` provisions a claimable
-  project and writes `DATABASE_URL` and `DATABASE_URL_UNPOOLED` to an existing
-  `.env`, otherwise `.env.local`. A person can claim it into their Neon account
-  before it expires.
+- No account yet: `npx neon@latest claim create --file .env.local` provisions
+  a claimable project and writes `DATABASE_URL` and `DATABASE_URL_UNPOOLED` to
+  `.env.local`. A person can claim it into their Neon account before it
+  expires.
 
 Use the pooled connection string (`-pooler` in the host) for app traffic and
 the direct one for migrations and session-level features such as `LISTEN` or
